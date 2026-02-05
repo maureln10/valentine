@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="main.css">
+<title>My Valentine 💖</title>
+</head>
+<body>
+
+<div class="container">
+    <p>Veux-tu être ma Valentine ? 💖</p>
+
+    <button class="btn1" aria-label="Oui">Oui</button>
+    <button class="btn2" aria-label="Non">Non</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+// ---------- Cœurs flottants ----------
+const colors = ['#ff5e78','#ffac81','#ffdf81','#ff80ab','#ff6f91','#ffb6c1','#ff69b4'];
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.animationDuration = 3 + Math.random() * 5 + 's';
+    heart.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(heart);
+}
+
+for(let i=0; i<35; i++) createHeart();
+
+// ---------- Sélection des éléments ----------
+const btnOui = document.querySelector(".btn1");
+const btnNon = document.querySelector(".btn2");
+const message = document.getElementById("message");
+
+// ---------- Messages possibles ----------
+const messages = [
+    "You made my day 💖",
+    "Tu es mon bonheur 🌹",
+    "Merci d'avoir dit Oui 💕",
+    "Mon cœur est à toi 💘",
+    "Tu es ma Valentine ✨"
+];
+
+// ---------- Bouton Oui ----------
+btnOui.addEventListener("click", () => {
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    message.textContent = randomMsg;
+    message.classList.add("pop");
+    message.style.opacity = 1;
+});
+
+// ---------- Bouton Non ----------
+btnNon.addEventListener("mouseenter", () => {
+    const x = Math.random() * (window.innerWidth - btnNon.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btnNon.offsetHeight);
+    btnNon.style.position = 'absolute';
+    btnNon.style.left = x + 'px';
+    btnNon.style.top = y + 'px';
+});
+</script>
+
+</body>
+</html>

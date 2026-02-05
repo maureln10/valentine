@@ -1,0 +1,198 @@
+
+/* ---------- Body ---------- */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff5e78, #c9184a, #ff80ab, #ffdf81);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ---------- Animation gradient ---------- */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------- Container ---------- */
+.container {
+    background: rgba(255,255,255,0.95);
+    padding: 50px 70px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    z-index: 1;
+    max-width: 400px;
+    width: 90%;
+    transition: transform 0.3s;
+}
+.container:hover { transform: scale(1.02); }
+
+/* ---------- Texte ---------- */
+p {
+    font-size: 26px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ---------- Boutons ---------- */
+button {
+    padding: 14px 35px;
+    margin: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.btn1 {
+    background-color: #28a745;
+    color: white;
+}
+.btn1:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    background-color: #5cd65c;
+}
+
+.btn2 {
+    background-color: #dc3545;
+    color: white;
+}
+.btn2:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    background-color: #ff6f91;
+}
+
+/* ---------- Champ cadeau ---------- */
+#giftForm {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s ease;
+}
+#giftForm.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+#gift {
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    width: 80%;
+    font-size: 16px;
+}
+
+/* ---------- Message ---------- */
+#message {
+    margin-top: 25px;
+    font-size: 22px;
+    color: #28a745;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: scale(0);
+}
+
+/* Animation pop */
+.pop {
+    animation: pop 0.5s forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- Cœurs multicolores ---------- */
+
+.heart {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    clip-path: polygon(50% 0%, 61% 14%, 75% 14%, 100% 40%, 50% 100%, 0% 40%, 25% 14%, 39% 14%);
+    animation: float linear infinite, fadeInOut ease-in-out infinite;
+}
+
+/* Animation de flottement */
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: translateY(-800px) scale(0.5); }
+}
+
+/* Animation de fade-in/fade-out */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 40px;
+        border-radius: 20px;
+        max-width: 90%;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        margin: 8px;
+    }
+
+    #gift {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #message {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 25px;
+        border-radius: 15px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 6px;
+    }
+
+    #gift {
+        font-size: 13px;
+    }
+
+    #message {
+        font-size: 16px;
+    }
+}
+
